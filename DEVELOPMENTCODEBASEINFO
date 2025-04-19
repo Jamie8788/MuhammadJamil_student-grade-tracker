@@ -1,0 +1,17 @@
+Development Codebase
+
+This project uses Git version control hosted on GitHub to ensure collaborative, trackable development.
+
+A public GitHub repository was created for this project.
+
+All Python scripts (app.py, ui.py, database.py) are version-controlled.
+
+Development used branches for major updates (e.g., UI tweaks, CSV export).
+
+Commits include meaningful messages to track progress.
+
+GitHub Repository:
+
+https://github.com/Jamie8788/MuhammadJamil_student-grade-tracker
+
+Version control helped manage iterations, track issues, and showcase code quality during demo and peer review.
