@@ -24,25 +24,28 @@ RUN THIS CELL
 !pip install gradio pandas matplotlib
  
 THEN RUN THIS CELL:
+
+
 !pip install gradio flask matplotlib pandas
 !python final_enhanced_ui.py
 
+   //THE PAST CODE IN NEXT CELL AND RUN:
+
  
 
-THE PAST CODE IN NEXT CELL AND RUN:
-import gradio as gr
-import pandas as pd
-import matplotlib.pyplot as plt
-from database import init_db, get_grades, add_grade, delete_grade
+      import gradio as gr
+      Import pandas as pd
+      import matplotlib.pyplot as plt
+     from database import init_db, get_grades, add_grade, delete_grade
 
-init_db()
+       init_db()
 
-def get_all_students():
+    def get_all_students():
     records = get_grades()
     students = sorted(set([r[0] for r in records]))
     return students if students else ["alice", "bob"]
 
-def plot_grades(grades_list):
+    def plot_grades(grades_list):
     subjects = [subj for (subj, _) in grades_list]
     scores = [float(s) for (_, s) in grades_list]
     fig = plt.figure(figsize=(6,4))
@@ -65,7 +68,7 @@ def plot_grades(grades_list):
     plt.tight_layout()
     return fig
 
-def get_student_data(student):
+    def get_student_data(student):
     records = get_grades(student)
     df = pd.DataFrame(records, columns=["Subject", "Grade"])
     if len(records) > 0:
@@ -77,28 +80,28 @@ def get_student_data(student):
     else:
         stats = "No data available."
         chart = plot_grades([])
-    df_export = df.copy()
+     df_export = df.copy()
     df_export["Student"] = student
     df_export = df_export[["Student", "Subject", "Grade"]]
     csv_path = f"{student}_grades.csv"
     df_export.to_csv(csv_path, index=False)
     return df, stats, chart, csv_path
 
-def add_student_grade(student, subject, score):
+    def add_student_grade(student, subject, score):
     try:
         msg = add_grade(student.strip().lower(), subject.strip(), float(score))
         return msg
     except Exception as e:
         return f"❌ Error: {str(e)}"
 
-def delete_student_grade(student, subject):
+    def delete_student_grade(student, subject):
     try:
         msg = delete_grade(student.strip().lower(), subject.strip())
         return msg
     except Exception as e:
         return f"❌ Error: {str(e)}"
 
-with gr.Blocks(title="COSC3506 FINAL PROJECT - Production Ready") as demo:
+    with gr.Blocks(title="COSC3506 FINAL PROJECT - Production Ready") as demo:
     gr.Markdown("""
     # 🎓 COSC3506 FINAL PROJECT
     ## 💼 Production-Ready Student Grade Tracker
@@ -137,7 +140,7 @@ with gr.Blocks(title="COSC3506 FINAL PROJECT - Production Ready") as demo:
     del_button.click(fn=delete_student_grade, inputs=[del_student, del_subject], outputs=del_status)
     refresh_students.click(fn=lambda: gr.update(choices=get_all_students()), inputs=None, outputs=student_input)
 
-demo.launch(debug=False, share=True)
+      demo.launch(debug=False, share=True)
 
 
 A public Gradio URL will appear.(FOR EASY I HAVE MODIFIED IT SO YOU CAN DIERECTLY VIEW IN COLLAB) Open it in a new tab.(SCREENSHOTS ATTACHED IN OTHER DOCUMENT HOW IT WILL LOOK IF YOU OPEN IT SEPRATELY)
