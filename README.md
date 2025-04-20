@@ -152,11 +152,7 @@ License
 Licensed under the MIT License
 ## 🎬 Project Demo Video
 
-<video width="100%" controls>
-  <source src="cosc3506_projectdemo (2) (1).mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+▶️ [Click to Watch cosc3506_projectdemo (2) (1).mp4](./cosc3506_projectdemo%20%282%29%20%281%29.mp4)
 
 
 
