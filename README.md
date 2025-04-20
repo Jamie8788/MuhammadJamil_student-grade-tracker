@@ -150,6 +150,13 @@ Repository Link
 https://github.com/Jamie8788/MuhammadJamil_student-grade-tracker
 License
 Licensed under the MIT License
+## 🎬 Project Demo Video
+
+<video width="100%" controls>
+  <source src="cosc3506_projectdemo (2) (1).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 
 
